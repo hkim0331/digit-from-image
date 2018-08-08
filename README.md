@@ -105,14 +105,14 @@ ms-says.conf をS式で書くことにして、
 
 * resize は /usr/local/bin/covert を利用、
 
-  ```sh
+```sh
 $ convert 0.png -resize 16x32! 0-16x32.png
 ```
 
 * χ2関数はサイズの同じイメージを引数にとり、
   ビット毎引き算し、2乗和をとる
 
-  ```lisp
+```lisp
 (define χ2
   (lambda (src temp)
     (let ((bm1 (make-object bitmap% src))
