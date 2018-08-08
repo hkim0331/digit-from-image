@@ -133,7 +133,7 @@ $ convert 0.png -resize 16x32! 0-16x32.png
 # エリア抽出 extract-area.rkt
 
 * 3年PBL 用に作成した
-[https://github.com/hkim0331/find-black-spots](find-black-spots)
+[find-black-spots](https://github.com/hkim0331/find-black-spots)
 の成果を利用。
 
 * find-white-frame を作成、
