@@ -1,7 +1,7 @@
 #!/usr/local/bin/racket
 #lang racket
 
-;;(provide symbol)
+(provide guess-number)
 
 (require racket/draw)
 
@@ -49,17 +49,20 @@
     (sort (map (lambda (x) (list (χ2 "16x32.png" x) x)) *templates*)
           (lambda (x y) (< (first x) (first y))))))
 
-;; main starts here
-(define src "sample.png")
-
-(let ((argv (current-command-line-arguments)))
-  (when (= 1 (vector-length argv))
-    (set! src (vector-ref argv 0))))
-
 (define digit-from-image
   (lambda (path)
     (first
      (regexp-match #rx"[0-9]+" (path->string path)))))
 
-;;(second (first  (find-best-match src)))
-(digit-from-image (second (first (find-best-match src))))
+(define guess-number
+  (lambda (src)
+    (digit-from-image (second (first (find-best-match src))))))
+
+;; main starts here
+(define src "sample.png")
+(let ((argv (current-command-line-arguments)))
+  (when (= 1 (vector-length argv))
+    (set! src (vector-ref argv 0))))
+
+(guess-number src)
+
