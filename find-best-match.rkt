@@ -41,7 +41,7 @@
 (define resize
   (lambda (src size dest)
     (system
-      (format "~s ~s -resize ~s! ~s" *convert* src size dest))))
+      (format "~s ~s -resize ~s! -strip ~s" *convert* src size dest))))
 
 (define find-best-match
   (lambda (img)

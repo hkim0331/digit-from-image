@@ -14,6 +14,18 @@ update: 2018-08-06, 2018-08-07,
 
 どんなサブプロジェクトに分けたらいいか？
 
+# FIXME
+
+```sh
+$ ./find-best-match.rkt ~/Desktop/rgb.png
+convert: profile 'icc': 'RGB ': RGB color space not permitted on
+grayscale PNG `16x32.png' @
+warning/png.c/MagickPNGWarningHandler/1744.
+```
+
+thanks,
+[--strip option](https://github.com/ImageMagick/ImageMagick/issues/884)
+
 # ms-says.rkt: Kyoko さんが話しかける
 
 * time-signal.sh と基本は同じ。細かく制御したいので racket で書き直し。
