@@ -17,9 +17,9 @@ resize:
 # prep to zip this folder.
 prep:
 	make clean
+	${RM} -rf .git
 	make self-contained
 	@echo ready to zip!
 
 clean:
 	${RM} *.html *.bak 16x32.png
-
