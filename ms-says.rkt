@@ -1,5 +1,6 @@
-#!/usr/local/bin/racket
 #lang racket
+
+(require racket/string)
 
 (define *conf* "ms-says.conf")
 (let ((argv (current-command-line-arguments)))
@@ -26,20 +27,23 @@
 
 ;;ここまでは準備。次からが本番。
 ;;1秒に一回まわって、tm が "" 以外を返したらそれを say すればいい。
+;; (define pad-zero
+;;   (lambda (n)
+;;     (if (< 9 n)
+;;         (format "~a" n)
+;;         (format "0~a" n))))
 
-(define pad-zero
-  (lambda (n)
-    (if (< 9 n)
-        (format "~a" n)
-        (format "0~a" n))))
+;; (define hh:mm:ss
+;;   (lambda ()
+;;     (let ((date (seconds->date (current-seconds))))
+;;       (format "~a:~a:~a"
+;;               (pad-zero (date-hour date))
+;;               (pad-zero (date-minute date))
+;;               (pad-zero (date-second date))))))
 
 (define hh:mm:ss
   (lambda ()
-    (let ((date (seconds->date (current-seconds))))
-      (format "~a:~a:~a"
-              (pad-zero (date-hour date))
-              (pad-zero (date-minute date))
-              (pad-zero (date-second date))))))
+    (strig-trim (system "date '+%T'"))))
 
 (define start
   (lambda ()
