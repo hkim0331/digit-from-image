@@ -1,4 +1,3 @@
-#!/usr/local/bin/racket
 #lang racket
 
 (provide guess-number)
@@ -65,4 +64,3 @@
     (set! src (vector-ref argv 0))))
 
 (guess-number src)
-
